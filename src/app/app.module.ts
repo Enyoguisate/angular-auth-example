@@ -6,6 +6,10 @@ import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
+import { AuthServiceProvider } from '../providers/auth-service/auth-service';
+import { SecondPageModule } from '../pages/second/second.module';
+import { ThirdPageModule } from '../pages/third/third.module';
+import { FourthPageModule } from '../pages/fourth/fourth.module';
 
 @NgModule({
   declarations: [
@@ -14,7 +18,10 @@ import { HomePage } from '../pages/home/home';
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    SecondPageModule,
+    ThirdPageModule,
+    FourthPageModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -24,7 +31,9 @@ import { HomePage } from '../pages/home/home';
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    AuthServiceProvider,
+    AuthServiceProvider
   ]
 })
 export class AppModule {}
